@@ -10,9 +10,10 @@
   <version>1.0-SNAPSHOT</version>
         <properties>
             <spring.version>3.2.3.RELEASE</spring.version>
+            <log4j.level>debug</log4j.level>
         </properties>
   <dependencies>
-      <dependency>
+     <!-- <dependency>
           <groupId>com.octo.captcha</groupId>
           <artifactId>jcaptcha-all</artifactId>
           <version>1.0-RC6</version>
@@ -22,7 +23,7 @@
                   <artifactId>spring</artifactId>
               </exclusion>
           </exclusions>
-      </dependency>
+      </dependency>-->
 
 
       <dependency>
@@ -60,9 +61,34 @@
           <artifactId>spring-webmvc</artifactId>
           <version>${spring.version}</version>
       </dependency>
+      <!-- +++|Log4j|+++ -->
+      <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <version>1.2.16</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.7.2</version>
+      </dependency>
+      <!-- |Log4j| end -->
+
   </dependencies>
     <build>
         <finalName>jcaptcha</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
